@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-    console.log(request.cookies.get("token"));
+    const token=request.cookies.get("token");
     const admin = false;
     const url = request.nextUrl.clone();
 
-    // if (request.cookies.has("token")) {
+    // if (token) {
     //     if (!admin && request.url.startsWith("/admin")) {
     //         url.pathname = "/";
     //         return NextResponse.redirect(url);
