@@ -8,7 +8,7 @@ export default function Layout({
     return (
         <>
             <Navbar />
-            {children}
+            <div className="px-4">{children}</div>
             <Footer />
         </>
     );
