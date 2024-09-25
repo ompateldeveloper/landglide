@@ -1,13 +1,10 @@
 "use client";
 import React from "react";
 import { Button } from "./ui/button";
-import { User, User2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
 import SavedLocationsModal from "@/components/saved-locations";
 
 export default function Navbar() {

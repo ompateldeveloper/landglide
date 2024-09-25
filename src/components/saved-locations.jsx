@@ -9,13 +9,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function SavedLocationsModal({ children }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [locations, setLocations] = useState([
+    const locations = [
         { id: 1, name: "Home", address: "123 Main St, Anytown, USA" },
         { id: 2, name: "Work", address: "456 Business Ave, Cityville, USA" },
         { id: 3, name: "Gym", address: "789 Fitness Blvd, Healthytown, USA" },
         { id: 4, name: "Favorite Restaurant", address: "321 Gourmet Lane, Tastyville, USA" },
         { id: 5, name: "Park", address: "159 Green St, Natureville, USA" },
-    ]);
+    ];
     const [searchTerm, setSearchTerm] = useState("");
 
     const filteredLocations = locations.filter((location) => location.name.toLowerCase().includes(searchTerm.toLowerCase()) || location.address.toLowerCase().includes(searchTerm.toLowerCase()));
