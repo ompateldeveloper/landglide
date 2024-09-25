@@ -8,7 +8,6 @@ import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHe
 import SavedLocationsModal from "@/components/saved-locations";
 
 export default function Navbar() {
-    const navi = useRouter();
     return (
         <div className="flex items-center justify-between p-4 shadow">
             <div className="flex items-center justify-center gap-2">
