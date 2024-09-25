@@ -11,7 +11,6 @@ import { useForm } from "react-hook-form";
 import { signUpSchema } from "@/validators/authValidators";
 import axios from "axios";
 import { EyeClosedIcon, EyeOpenIcon } from "@radix-ui/react-icons";
-import { PasswordInput } from "@/components/ui/password-input";
 export default function Signup() {
     const [visible, setVisible] = useState(false);
 
