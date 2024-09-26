@@ -52,9 +52,16 @@ export default function Signup() {
                         <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Your Name
+                                    First Name
                                 </label>
-                                <Input type="text" name="name" id="name" placeholder="John doe" {...register("name")} />
+                                <Input type="text" name="fname" id="fname" placeholder="John" {...register("fname")} />
+                                {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+                            </div>
+                            <div>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Last Name
+                                </label>
+                                <Input type="text" name="lname" id="lname" placeholder="doe" {...register("lname")} />
                                 {errors.name && <p className="text-red-500">{errors.name.message}</p>}
                             </div>
                             <div>

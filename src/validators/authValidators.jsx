@@ -4,7 +4,8 @@ const signInSchema = z.object({
     password: z.string().min(8, "Password must be at least 8 characters long"),
 });
 const signUpSchema = z.object({
-    name: z.string().min(2,"Name must be min "),
+    fname: z.string().min(1,"Name must be min 1 charchter(s)"),
+    lname: z.string().min(1,"Name must be min 1 charchter(s)"),
     email: z.string().email("Invalid email address"),
     password: z.string().min(8, "Password must be at least 8 characters long"),
 });

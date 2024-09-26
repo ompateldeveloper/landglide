@@ -1,3 +1,4 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -5,16 +6,23 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CameraIcon } from "lucide-react";
 
 export default function AccountSettings() {
     return (
         <div className="container mx-auto py-8">
             <h1 className="text-3xl font-bold mb-6">Account Setting</h1>
             <Tabs defaultValue="general" className="w-full flex gap-2 ">
-                <TabsList className="h-min flex-col p-2 mr-2 mt-2 bg-none"  >
-                    <TabsTrigger className="w-full " value="general">General</TabsTrigger>
-                    <TabsTrigger className="w-full " value="security">Security</TabsTrigger>
-                    <TabsTrigger className="w-full " value="notifications">Notifications</TabsTrigger>
+                <TabsList className="h-min flex-col p-2 mr-2 mt-2 bg-none">
+                    <TabsTrigger className="w-full " value="general">
+                        General
+                    </TabsTrigger>
+                    <TabsTrigger className="w-full " value="security">
+                        Security
+                    </TabsTrigger>
+                    <TabsTrigger className="w-full " value="notifications">
+                        Notifications
+                    </TabsTrigger>
                 </TabsList>
                 <TabsContent value="general" className="flex-1">
                     <Card>
@@ -22,6 +30,21 @@ export default function AccountSettings() {
                             <CardTitle>General Information</CardTitle>
                             <CardDescription>Update your account details here.</CardDescription>
                         </CardHeader>
+                        <div className="flex flex-col items-center p-2 space-y-4">
+                            <Avatar className="w-32 h-32">
+                                <AvatarImage src="https://github.com/shadcn.png" alt="Profile picture" />
+                                <AvatarFallback>JD</AvatarFallback>
+                            </Avatar>
+                            <div className="relative">
+                                <Input type="file" id="avatar-upload" className="sr-only" accept="image/*" />
+                                <Label htmlFor="avatar-upload" className="">
+                                    <Button>
+                                        <CameraIcon className="w-4 h-4 mr-2" />
+                                        Change Picture
+                                    </Button>
+                                </Label>
+                            </div>
+                        </div>
                         <CardContent className="space-y-4">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-2">
@@ -67,6 +90,7 @@ export default function AccountSettings() {
                             <CardTitle>Security Settings</CardTitle>
                             <CardDescription>Manage your account security and password here.</CardDescription>
                         </CardHeader>
+
                         <CardContent className="space-y-4">
                             <div className="space-y-2">
                                 <Label htmlFor="currentPassword">Current Password</Label>
@@ -80,10 +104,10 @@ export default function AccountSettings() {
                                 <Label htmlFor="confirmPassword">Confirm New Password</Label>
                                 <Input id="confirmPassword" type="password" />
                             </div>
-                            <div className="flex items-center space-x-2">
+                            {/* <div className="flex items-center space-x-2">
                                 <Switch id="twoFactor" />
                                 <Label htmlFor="twoFactor">Enable Two-Factor Authentication</Label>
-                            </div>
+                            </div> */}
                         </CardContent>
                         <CardFooter>
                             <Button>Update Security Settings</Button>

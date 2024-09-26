@@ -3,9 +3,8 @@ import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import SavedLocationsModal from "@/components/saved-locations";
-
+import NavbarSheet from '@/components/navbar-sheet'
 export default function Navbar() {
     return (
         <div className="flex items-center justify-between p-4 shadow">
@@ -28,39 +27,12 @@ export default function Navbar() {
                 </div>
             </div>
             <div className="">
-                <Sheet>
-                    <SheetTrigger>
-                        <Avatar>
-                            <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>
-                    </SheetTrigger>
-                    <SheetContent>
-                        <SheetHeader>
-                            <SheetTitle>Edit profile</SheetTitle>
-                            <SheetDescription>Make changes to your profile here. Click save when you're done.</SheetDescription>
-                        </SheetHeader>
-                        {/* <div className="grid gap-4 py-4">
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="name" className="text-right">
-                                    Name
-                                </Label>
-                                <Input id="name" value="Pedro Duarte" className="col-span-3" />
-                            </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="username" className="text-right">
-                                    Username
-                                </Label>
-                                <Input id="username" value="@peduarte" className="col-span-3" />
-                            </div>
-                        </div> */}
-                        <SheetFooter>
-                            <SheetClose asChild>
-                                <Button type="submit">Save changes</Button>
-                            </SheetClose>
-                        </SheetFooter>
-                    </SheetContent>
-                </Sheet>
+                <NavbarSheet name="om" email="ohpstarobo543@gmail.com">
+                    <Avatar>
+                        <AvatarImage src="https://github.com/shadcn.png" />
+                        <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                </NavbarSheet>
             </div>
         </div>
     );
