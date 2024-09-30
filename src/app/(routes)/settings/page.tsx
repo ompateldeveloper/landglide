@@ -32,7 +32,7 @@ export default function AccountSettings() {
                         </CardHeader>
                         <div className="flex flex-col items-center p-2 space-y-4">
                             <Avatar className="w-32 h-32">
-                                <AvatarImage src="https://github.com/shadcn.png" alt="Profile picture" />
+                                <AvatarImage src="https://github.com/ompateldeveloper.png" alt="Profile picture" />
                                 <AvatarFallback>JD</AvatarFallback>
                             </Avatar>
                             <div className="relative">

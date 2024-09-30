@@ -10,7 +10,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between p-4 shadow">
             <div className="flex items-center justify-center gap-2">
                 <Link href="/">
-                    <div className="text-3xl">LangSlide</div>
+                    <div className="text-3xl">LandSlide</div>
                 </Link>
                 <div className="flex items-center justify-center gap-2">
                     {/* <Link href="/account">
@@ -29,7 +29,7 @@ export default function Navbar() {
             <div className="">
                 <NavbarSheet name="om" email="ohpstarobo543@gmail.com">
                     <Avatar>
-                        <AvatarImage src="https://github.com/shadcn.png" />
+                        <AvatarImage src="https://github.com/ompateldeveloper.png" />
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                 </NavbarSheet>

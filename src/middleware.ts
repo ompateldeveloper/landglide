@@ -1,24 +1,33 @@
-import type { NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-    console.log(request);
+    const token = request.cookies.get("token");
+    const admin = request.cookies.get('admin')?.value==="true"?true:false;
+    console.log(Boolean(admin));
     
-    // const token=request.cookies.get("token");
-    // const admin = false;
-    // const url = request.nextUrl.clone();
+    const url = request.nextUrl.clone();
+    const { pathname } = request.nextUrl;
 
-    // if (token) {
-    //     if (!admin && request.url.startsWith("/admin")) {
-    //         url.pathname = "/";
-    //         return NextResponse.redirect(url);
-    //     }
-    //     return NextResponse.next();
-    // } else {
-    //     url.pathname = "/signin";
-    //     return NextResponse.redirect(url);
-    // }
+    if (pathname === "/signin" || pathname === "/signup") {
+        const token = request.cookies.get("token");
+        if (token) {
+            return NextResponse.redirect(new URL("/", request.url));
+        }
+        return NextResponse.next();
+    }
+
+    if (token) {
+        if (!admin && pathname.startsWith("/admin")) {
+            url.pathname = "/";
+            return NextResponse.redirect(url);
+        }
+        return NextResponse.next();
+    } else {
+        url.pathname = "/signin";
+        return NextResponse.redirect(url);
+    }
 }
 
 export const config = {
-    matcher: ["/", "/home/:path*", "/admin/:path*"],
+    matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)", "/admin/:path*"],
 };

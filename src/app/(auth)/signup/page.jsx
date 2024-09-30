@@ -2,16 +2,18 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { signUpSchema } from "@/validators/authValidators";
 import axios from "axios";
 import { EyeClosedIcon, EyeOpenIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 export default function Signup() {
-    const [visible, setVisible] = useState(false);
+    const router = useRouter()
 
+    const [visible, setVisible] = useState(false);
     const {
         register,
         handleSubmit,
@@ -23,8 +25,10 @@ export default function Signup() {
     const onSubmit = (formData) => {
         axios
             .post("http://localhost:4000/api/auth/signup", formData, { withCredentials: true })
-            .then((data) => {
-                console.log(data);
+            .then((res) => {
+                Object.keys(res.data.data).map((key)=>{
+                    localStorage.setItem(String(key),res.data.data[key])
+                })
             })
             .catch((error) => {
                 console.log(error);

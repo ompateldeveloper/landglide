@@ -7,7 +7,10 @@ import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { signInSchema } from "@/validators/authValidators";
+import { useRouter } from "next/navigation";
 export default function Signin() {
+    const navigator = useRouter();
+
     const {
         register,
         handleSubmit,
@@ -19,8 +22,12 @@ export default function Signin() {
     const onSubmit = (formData) => {
         axios
             .post("http://localhost:4000/api/auth/signin", formData, { withCredentials: true })
-            .then((data) => {
-                console.log(data);
+            .then((res) => {
+                Object.keys(res.data.data).map((key)=>{
+                    localStorage.setItem(String(key),res.data.data[key])
+                })
+                
+                navigator.back()
             })
             .catch((error) => {
                 console.log(error);
